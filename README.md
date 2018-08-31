@@ -15,7 +15,7 @@ React flexible dropdown menu by function as children component pattern ⭐️⭐
 
 ## Example
 
-```tsx
+```jsx
 import React from 'react';
 import {
   DropdownMenu,
