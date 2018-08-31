@@ -151,9 +151,14 @@ The Function as Children Component, will call the children and input open block 
 
 ## Helper Component
 
-When you would like to use dropdown easily, we prepare some simple Component for you to handle UI.
+When you would like to use drop down easily, we prepare some simple Component for you to handle UI, can see the codesandbox to know how to use them.
 
--
+- DropdownHeaderWrapper
+- DropdownHeaderUpperWrapper
+- DropdownMenuWrapper
+- DropdownMenuBlockWrapper
+- DropdownMenuBlockUpperWrapper
+- DropdownFlexSpaceBetween
 
 ## License
 
