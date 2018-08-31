@@ -77,6 +77,84 @@ const DropdownMenu: React.StatelessComponent<{}> = () => (
 );
 ```
 
+## Core Component
+
+The Core Component is implement the Context API store and other change state handler by three Component
+
+### Sample like:
+
+- [Component]
+  - [...props]
+
+### DropdownMenu
+
+The initial Component, that can set the default items, handler, default key.
+
+- DropdownMenu
+  - onChange: ({key: string}) => Function [required]
+  - items: Array<{ key: string, value: string, text: string }> [required]
+  - defaultKey: string [required]
+
+### DropdownBlock
+
+The Function as Children Component, will call the children and input open block handler, open state and value
+
+- DropdownBlock
+
+```js
+({
+  /**
+   * type Function
+   * [Internal function handler]
+   * */
+  handleOpenBlock,
+
+  /**
+   * type boolean
+   * dropdown open state
+   * */
+  isOpen,
+
+  /**
+   * type boolean
+   * text
+   * */
+  value
+}) => ReactNode;
+```
+
+### DropdownMenuBlock
+
+- DropdownMenuBlock
+
+```js
+({
+  /**
+   * type boolean
+   * the dropdown open state
+   * */
+  isOpen,
+
+  /**
+   * type Array<{ key: string, value: string, text: string }>
+   * return origin items
+   * */
+  items,
+
+  /**
+   * type (key: string) => void;
+   * return internal handler for change key/value
+   * */
+  handleChangeValue
+}) => ReactNode;
+```
+
+## Helper Component
+
+When you would like to use dropdown easily, we prepare some simple Component for you to handle UI.
+
+-
+
 ## License
 
 MIT
