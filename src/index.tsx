@@ -85,12 +85,7 @@ export const DropdownMenuBlockWrapper = styled.div`
 `;
 
 export const DropdownMenuBlockUpperWrapper = styled.div`
-  ${({
-    width,
-    height,
-    isOpen,
-    isFirst
-  }: DropdownMenuBlockUpperWrapperProps) => css`
+  ${({ width, height, isOpen, isFirst }: DropdownMenuBlockUpperWrapperProps) => css`
     user-select: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
@@ -137,9 +132,7 @@ export class DropdownMenu extends React.PureComponent<DropdownMenuProps> {
         defaultKey={this.props.defaultKey || ''}
         items={this.props.items}
       >
-        <DropdownContext.Consumer>
-          {_ => this.props.children()}
-        </DropdownContext.Consumer>
+        <DropdownContext.Consumer>{_ => this.props.children()}</DropdownContext.Consumer>
       </DropdownStore>
     );
   }
@@ -150,12 +143,8 @@ type DropdownBlockProps = {
     value: { value: string; handleOpenBlock: () => void; isOpen: boolean }
   ) => React.ReactNode;
 };
-export const DropdownBlock: React.StatelessComponent<
-  DropdownBlockProps
-> = props => (
-  <DropdownContext.Consumer>
-    {value => props.children(value)}
-  </DropdownContext.Consumer>
+export const DropdownBlock: React.StatelessComponent<DropdownBlockProps> = props => (
+  <DropdownContext.Consumer>{value => props.children(value)}</DropdownContext.Consumer>
 );
 
 type DropdownMenuBlock = {
@@ -167,10 +156,6 @@ type DropdownMenuBlock = {
     }
   ) => React.ReactNode;
 };
-export const DropdownMenuBlock: React.StatelessComponent<
-  DropdownMenuBlock
-> = props => (
-  <DropdownContext.Consumer>
-    {value => props.children(value)}
-  </DropdownContext.Consumer>
+export const DropdownMenuBlock: React.StatelessComponent<DropdownMenuBlock> = props => (
+  <DropdownContext.Consumer>{value => props.children(value)}</DropdownContext.Consumer>
 );

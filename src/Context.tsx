@@ -31,9 +31,7 @@ type State = {
 class DropdownStore extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
-    const getItem = props.items.filter(
-      item => item.key === props.defaultKey
-    )[0];
+    const getItem = props.items.filter(item => item.key === props.defaultKey)[0];
     this.state = {
       value: getItem.text,
       key: getItem.key,
@@ -74,9 +72,7 @@ class DropdownStore extends React.PureComponent<Props, State> {
   }
   render() {
     return (
-      <DropdownContext.Provider value={this.state}>
-        {this.props.children}
-      </DropdownContext.Provider>
+      <DropdownContext.Provider value={this.state}>{this.props.children}</DropdownContext.Provider>
     );
   }
 }

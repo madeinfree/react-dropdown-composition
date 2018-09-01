@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ThemedBaseStyledInterface,
-  ThemedStyledFunction
-} from 'styled-components';
+import { ThemedBaseStyledInterface, ThemedStyledFunction } from 'styled-components';
 
 type Item = {
   key: string;
@@ -50,13 +47,7 @@ type DropdownMenuBlockWrapperProps = {
 export class DropdownMenu extends React.PureComponent<DropdownMenuProps> {}
 export const DropdownBlock: React.StatelessComponent<DropdownBlockProps>;
 export const DropdownMenuBlock: React.StatelessComponent<DropdownMenuBlock>;
-export const DropdownHeaderWrapper: () => React.PureComponent<
-  DropdownHeaderWrapperProps
->;
-export const DropdownMenuWrapper: () => React.PureComponent<
-  DropdownMenuWrapperProps
->;
-export const DropdownMenuBlockWrapper: () => React.PureComponent<
-  DropdownMenuBlockWrapperProps
->;
+export const DropdownHeaderWrapper: () => React.PureComponent<DropdownHeaderWrapperProps>;
+export const DropdownMenuWrapper: () => React.PureComponent<DropdownMenuWrapperProps>;
+export const DropdownMenuBlockWrapper: () => React.PureComponent<DropdownMenuBlockWrapperProps>;
 export const DropdownFlexSpaceBetween: () => React.PureComponent<{}>;

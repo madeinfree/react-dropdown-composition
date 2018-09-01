@@ -4,8 +4,11 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "yarn jest",
+    "prettier": "sh ./scripts/prettier.sh",
     "build": "rollup -c && rm -rf ./dist/index.d.ts && cp ./src/index.d.ts ./dist/index.d.ts",
-    "dev": "yarn webpack-dev-server"
+    "dev": "yarn webpack-dev-server",
+    "lint": "eslint",
+    "precommit": "lint-staged"
   },
   "author": {
     "email": "sal95610@gmail.com",
@@ -30,8 +33,12 @@
     "@types/react-test-renderer": "^16.0.1",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.3.1",
+    "eslint": "^5.5.0",
+    "husky": "^0.14.3",
     "jest": "^23.4.2",
     "jsdom": "^12.0.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.4.2",
@@ -39,11 +46,20 @@
     "rollup-plugin-typescript": "^0.8.1",
     "styled-components": "^3.4.5",
     "ts-jest": "^23.1.4",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.1",
+    "typescript-eslint-parser": "^18.0.0"
   },
   "dependencies": {},
   "peerDependencies": {
     "react": "^16.0.0",
     "styled-components": "^3.4.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "jest --config ./jest.config.js --bail --findRelatedTests",
+      "prettier --config ./.prettierrc.js --write \"./src/**/*.{ts,tsx}\"",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
