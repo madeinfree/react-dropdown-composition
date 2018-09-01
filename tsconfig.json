@@ -3,6 +3,10 @@
     "outDir": "./dist",
     "module": "esnext",
     "target": "es5",
+    "rootDirs": [
+      "./src"
+    ],
+    "baseUrl": "./src",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
