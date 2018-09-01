@@ -10,6 +10,9 @@
     "preserveConstEnums": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
+    // for the jest test environment
+    "esModuleInterop": true,
+    // common typescript bundle import environment
     "allowSyntheticDefaultImports": true
   },
   "include": ["./src/**/*"],
