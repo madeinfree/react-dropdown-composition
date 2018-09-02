@@ -29,8 +29,8 @@ type DropdownMenuWrapperProps = {
   top?: string;
 };
 
-export const DropdownHeaderWrapper = styled.div`
-  ${({ width, height, isOpen }: DropdownHeaderWrapperProps) => css`
+export const DropdownHeaderWrapper = styled.div<DropdownHeaderWrapperProps>`
+  ${({ width, height, isOpen }) => css`
     user-select: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
@@ -44,8 +44,8 @@ export const DropdownHeaderWrapper = styled.div`
   `};
 `;
 
-export const DropdownHeaderUpperWrapper = styled.div`
-  ${({ width, height, isOpen }: DropdownHeaderUpperWrapperProps) => css`
+export const DropdownHeaderUpperWrapper = styled.div<DropdownHeaderUpperWrapperProps>`
+  ${({ width, height, isOpen }) => css`
     user-select: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
@@ -59,16 +59,16 @@ export const DropdownHeaderUpperWrapper = styled.div`
   `};
 `;
 
-export const DropdownMenuWrapper = styled.div`
-  ${({ top }: DropdownMenuWrapperProps) => css`
+export const DropdownMenuWrapper = styled.div<DropdownMenuWrapperProps>`
+  ${({ top }) => css`
     ${top ? (top ? `top: ${top}` : 'top: 0px') : ''};
   `};
   z-index: 99;
   position: absolute;
 `;
 
-export const DropdownMenuBlockWrapper = styled.div`
-  ${({ width, height, isOpen, isLast }: DropdownMenuBlockWrapperProps) => css`
+export const DropdownMenuBlockWrapper = styled.div<DropdownMenuBlockWrapperProps>`
+  ${({ width, height, isOpen, isLast }) => css`
     user-select: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
@@ -84,8 +84,8 @@ export const DropdownMenuBlockWrapper = styled.div`
   `};
 `;
 
-export const DropdownMenuBlockUpperWrapper = styled.div`
-  ${({ width, height, isOpen, isFirst }: DropdownMenuBlockUpperWrapperProps) => css`
+export const DropdownMenuBlockUpperWrapper = styled.div<DropdownMenuBlockUpperWrapperProps>`
+  ${({ width, height, isOpen, isFirst }) => css`
     user-select: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
@@ -149,11 +149,7 @@ export const DropdownBlock: React.StatelessComponent<DropdownBlockProps> = props
 
 type DropdownMenuBlock = {
   children: (
-    value: {
-      handleChangeValue: (value: string) => void;
-      isOpen: boolean;
-      items: Item[];
-    }
+    value: { handleChangeValue: (value: string) => void; isOpen: boolean; items: Item[] }
   ) => React.ReactNode;
 };
 export const DropdownMenuBlock: React.StatelessComponent<DropdownMenuBlock> = props => (

@@ -19,14 +19,11 @@ type Props = {
 };
 type State = {
   value: string;
-  key: string | number;
-  items: Item[];
   isOpen: boolean;
+  key?: string | number;
+  items: Item[];
   handleChangeValue: (value: string) => void;
   handleOpenBlock: () => void;
-  handleChangePosition: (x: number, y: number) => void;
-  x: number;
-  y: number;
 };
 class DropdownStore extends React.PureComponent<Props, State> {
   constructor(props: Props) {
@@ -38,10 +35,7 @@ class DropdownStore extends React.PureComponent<Props, State> {
       isOpen: false,
       items: props.items,
       handleChangeValue: this.handleChangeValue,
-      handleOpenBlock: this.handleOpenBlock,
-      handleChangePosition: this.handleChangePosition,
-      x: 0,
-      y: 0
+      handleOpenBlock: this.handleOpenBlock
     };
   }
   handleChangeValue = (key: string) => {
@@ -58,17 +52,11 @@ class DropdownStore extends React.PureComponent<Props, State> {
     }));
   };
   componentDidUpdate(_: Props, prevState: State) {
-    if (this.state.value !== prevState.value) {
+    if (this.state.value !== prevState.value && this.state.key && this.props.onChange) {
       this.props.onChange({
         key: this.state.key
       });
     }
-  }
-  handleChangePosition(x: number, y: number) {
-    this.setState(_ => ({
-      x,
-      y
-    }));
   }
   render() {
     return (

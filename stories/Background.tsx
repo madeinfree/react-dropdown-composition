@@ -1,13 +1,6 @@
 import React from 'react';
 import { default as styled, css } from 'styled-components';
-import {
-  DropdownMenu,
-  DropdownBlock,
-  DropdownMenuBlock,
-  DropdownHeaderWrapper,
-  DropdownMenuWrapper,
-  DropdownFlexSpaceBetween
-} from '../src';
+import { DropdownMenu, DropdownBlock, DropdownMenuBlock, DropdownMenuWrapper } from '../src';
 
 type BackgroundMenuProps = {
   width?: string;

@@ -14,6 +14,7 @@
     "preserveConstEnums": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
+    "strictNullChecks": true,
     // for the jest test environment
     "esModuleInterop": true,
     // common typescript bundle import environment
